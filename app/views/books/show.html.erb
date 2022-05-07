@@ -1,0 +1,13 @@
+<h2><%= @book.title %></h2>
+<br>
+<h3><%= @book.author %></h3>
+<br>
+<%=image_tag @book.image_url,size:"300x300"%>
+<div>
+Fecha Prestamo:<%= @book.b_date%>
+</div>
+<div>
+Fecha Devolucion:<%= @book.r_date%>
+</div>
+<br>
+<%= render "shered/btnhome"%>

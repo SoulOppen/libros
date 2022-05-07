@@ -1,0 +1,34 @@
+<h2>Mis Libros</h2>
+<br>
+<%= link_to "Nuevo libro",books_new_path,class:"btn btn-dark"%>
+<br>
+<table class="table">
+    <tr class="black">
+            <td>Titulo</td>
+            <td>Autor</td>
+            <td>Imagen</td>
+            <td>Estado</td>
+            <td>Fecha prestamo</td>
+            <td>Fecha devolucion</td>
+            <td>Ultima vez prestado</td>
+            <td></td>
+            <td></td>
+    </tr>
+    <% @books.each do |lib|%>
+            <tr class="bg-light">
+                <td><%= lib.title%></td>
+                <td><%= lib.author%></td>
+                <td><%= image_tag lib.image_url, class: "size" %></td>
+                <% if lib.status==0%>
+                    <td>Estante</td>
+                <%else%>
+                    <td>Prestado</td>
+                <%end%>
+                <td><%= lib.b_date%></td>
+                <td><%= lib.r_date%></td>
+                <td><%= lib.borrow%></td>
+                <td><%=link_to "show",books_show_path(lib.id),class:"btn btn-dark"%></td>
+                <td><%=link_to "edit",books_edit_path(lib.id),class:"btn btn-dark"%></td>
+            </tr>
+        <%end%>
+</table>

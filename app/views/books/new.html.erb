@@ -1,0 +1,71 @@
+<h2>Nuevo Libro</h2>
+<%= form_with model: @book do |f|%>
+    <div class="row">
+        <div class="col-3">
+        Titulo:
+        </div>
+        <div class="col-6">
+        <%= f.text_field :title %>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+        Autor:
+        </div>
+        <div class="col-6">
+        <%= f.text_field :author %>
+        </div>
+    </div>
+    <br>
+     <div class="row">
+        <div class="col-3">
+        Dirección imagen:
+        </div>
+        <div class="col-6">
+        <%= f.text_field :image_url %>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+        Estado:
+        </div>
+        <div class="col-6">
+        <%= f.select :status, [["No Prestado", "0"], ["Prestado", "1"]] %>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+        Fecha de prestamo:
+        </div>
+        <div class="col-6">
+        <%= f.date_field :b_date %>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+        Fecha de devolución:
+        </div>
+        <div class="col-6">
+        <%= f.date_field :r_date %>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+        Ultima persona a la que le preste:
+        </div>
+        <div class="col-6">
+        <%= f.text_field :borrow %>
+        </div>
+    </div>
+    <br>
+    <div>
+    <%= f.submit "Guardar", class: "btn btn-dark" %>
+    </div>
+<%end%>
+<br>
+<%= render "shered/btnhome"%>
