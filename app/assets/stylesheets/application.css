@@ -17,8 +17,8 @@ body{
     background-color: silver;
 }
 .size{
-    height: 100;
-    width: 120;
+    height: 50px;
+    width: 50px;
 }
 .black{
     background-color: black;

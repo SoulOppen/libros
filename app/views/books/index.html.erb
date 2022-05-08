@@ -27,8 +27,9 @@
                 <td><%= lib.b_date%></td>
                 <td><%= lib.r_date%></td>
                 <td><%= lib.borrow%></td>
-                <td><%=link_to "show",books_show_path(lib.id),class:"btn btn-dark"%></td>
-                <td><%=link_to "edit",books_edit_path(lib.id),class:"btn btn-dark"%></td>
+                <td><%=link_to "show",book_path(lib.id),class:"btn btn-dark"%></td>
+                <td><%=link_to "edit",edit_books_path(lib.id),class:"btn btn-dark"%></td>
+                <td><%=link_to "destroy",edit_books_path(lib.id),class:"btn btn-dark"%></td>
             </tr>
         <%end%>
 </table>
