@@ -1,22 +1,25 @@
 <h2>Mis Libros</h2>
-<br>
-<%= link_to "Nuevo libro",books_new_path,class:"btn btn-dark"%>
-<br>
-<%= search_form_for @q do |f|%>
-    <%= f.label :Estado%>
-    <%= f.search_field :status_eq%>
-    <%= f.submit "Buscar", class:"btn black"%>
-<%end%>
+<div class= "row m-3">
+<%= link_to "Nuevo libro",books_new_path,class:"btn btn-dark col-2 d-flex justify-content-start"%>
+    <div class="col-10 d-flex justify-content-end">
+        <%= search_form_for @q do |f|%>
+            <%= f.label :Estado%>
+            <%= f.search_field :status_eq%>
+            <%= f.submit "Buscar", class:"btn black"%>
+        <%end%>
+    </div>
+</div>
 <br>
 <table class="table">
     <tr class="black">
-            <td>Titulo</td>
+            <td><%= sort_link(@q, :title,"Titulo")%></td>
             <td>Autor</td>
             <td>Imagen</td>
             <td>Estado</td>
             <td>Fecha prestamo</td>
             <td>Fecha devolucion</td>
             <td>Ultima vez prestado</td>
+            <td></td>
             <td></td>
             <td></td>
     </tr>

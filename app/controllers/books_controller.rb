@@ -26,7 +26,7 @@ class BooksController < ApplicationController
         @book=Book.find(params[:id])
         respond_to do |format|
             if @book.update(strong_params)
-                format.html {redirect_to book_path(@book), notice:"book was successfully updated"}
+                format.html {redirect_to book_path(@book), notice:"Datos del libro actualizado"}
             else
                 format.html {render :edit, status: :unprocessable_entity}
             end
