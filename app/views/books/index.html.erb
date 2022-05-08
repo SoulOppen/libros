@@ -2,6 +2,12 @@
 <br>
 <%= link_to "Nuevo libro",books_new_path,class:"btn btn-dark"%>
 <br>
+<%= search_form_for @q do |f|%>
+    <%= f.label :Estado%>
+    <%= f.search_field :status_eq%>
+    <%= f.submit "Buscar", class:"btn black"%>
+<%end%>
+<br>
 <table class="table">
     <tr class="black">
             <td>Titulo</td>
@@ -19,17 +25,12 @@
                 <td><%= lib.title%></td>
                 <td><%= lib.author%></td>
                 <td><%= image_tag lib.image_url, class: "size" %></td>
-                <% if lib.status==0%>
-                    <td>Estante</td>
-                <%else%>
-                    <td>Prestado</td>
-                <%end%>
+                <td><%=lib.status%></td>
                 <td><%= lib.b_date%></td>
                 <td><%= lib.r_date%></td>
                 <td><%= lib.borrow%></td>
                 <td><%=link_to "show",book_path(lib.id),class:"btn btn-dark"%></td>
                 <td><%=link_to "edit",edit_books_path(lib.id),class:"btn btn-dark"%></td>
-                <td><%=link_to "destroy",edit_books_path(lib.id),class:"btn btn-dark"%></td>
-            </tr>
+                </tr>
         <%end%>
 </table>

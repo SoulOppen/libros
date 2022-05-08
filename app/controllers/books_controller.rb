@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
     def index
-        @books=Book.all
+        @q=Book.ransack(params[:q])
+        @books=@q.result(distinct:true)
     end
     def new
         @book=Book.new
@@ -12,7 +13,7 @@ class BooksController < ApplicationController
         @book=Book.new (strong_params)
         respond_to do |format|
             if @book.save
-                format.html {redirect_to books_path(@book),notice: "Se creo tu libro"}
+                format.html {redirect_to book_path(@book),notice: "Se creo tu libro"}
             else
                 format.html {reder :new, status: :unprocessable_entity}
             end
@@ -25,7 +26,7 @@ class BooksController < ApplicationController
         @book=Book.find(params[:id])
         respond_to do |format|
             if @book.update(strong_params)
-                format.html {redirect_to root_path, notice:"book was successfully updated"}
+                format.html {redirect_to book_path(@book), notice:"book was successfully updated"}
             else
                 format.html {render :edit, status: :unprocessable_entity}
             end
