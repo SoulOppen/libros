@@ -1,4 +1,5 @@
 <h2>Mis Libros</h2>
+<p id="notice"><%= notice %></p>
 <div class= "row m-3">
 <%= link_to "Nuevo libro",books_new_path,class:"btn btn-dark col-2 d-flex justify-content-start"%>
     <div class="col-10 d-flex justify-content-end">
@@ -34,6 +35,7 @@
                 <td><%= lib.borrow%></td>
                 <td><%=link_to "show",book_path(lib.id),class:"btn btn-dark"%></td>
                 <td><%=link_to "edit",edit_books_path(lib.id),class:"btn btn-dark"%></td>
+                <td><%=link_to "destroy",destroy_books_path(lib.id),data: {turbo_method: :delete,turbo_confirm: 'Seguro?'},class:"btn btn-dark"%></td>
                 </tr>
         <%end%>
 </table>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "books/:id/edit",to: "books#edit", as:"edit_books"
   get "books/:id",to: "books#show", as:"book"
   patch 'books/:id', to: 'books#update'
-  delete 'books/:id', to: 'books#destroy'
+  delete 'books/:id', to: 'books#destroy',as:"destroy_books"
   # Defines the root path route ("/")
   root "books#index"
 end
